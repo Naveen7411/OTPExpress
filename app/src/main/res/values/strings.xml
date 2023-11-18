@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">OTPExpress</string>
+
+    <string-array name="country_names">
+        <item>Select the country</item>
+        <item>Jamaica</item>
+        <item>United Kingdom</item>
+        <item>France</item>
+
+
+        <!-- Add more country names as needed -->
+    </string-array>
+
+    <string-array name="country_codes">
+        <item></item>
+        <item>JM</item>
+        <item>GB</item>
+        <item>FR</item>
+        <!-- Add more country codes as needed -->
+    </string-array>
+</resources>

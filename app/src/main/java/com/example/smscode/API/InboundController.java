@@ -4,12 +4,13 @@ import static com.example.smscode.MainActivity.apiValues;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
+
 import android.content.Context;
-import android.content.Intent;
+
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
+
 import android.util.Log;
 import android.widget.TextView;
 
@@ -20,9 +21,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.example.smscode.MainActivity;
+
 import com.example.smscode.R;
 
 import org.json.JSONArray;
@@ -32,6 +31,8 @@ import org.json.JSONObject;
 public class InboundController {
      static  final String  API_KEY="a4aac958a8487a56c8e64ba8eedf1b56";
      static final String API_URL="http://www.phantomunion.com:10023/pickCode-api/push/";
+
+
 
     //API Callout to get the AccessToken for the transcation
      public static void getAccessToken( RequestQueue reqQu  ,APIResponseListener responseListener){
@@ -203,11 +204,16 @@ public class InboundController {
             }
         });
 
+
+
+
     }
 
 
 
-   public static void getOTP(String serialNumber,RequestQueue reqQu,TextView succesText,TextView errorText , Context context){
+
+
+    public static void getOTP(String serialNumber,RequestQueue reqQu,TextView succesText,TextView errorText , Context context,long retryTime){
 
        String prepareAPIurl = API_URL+"sweetWrapper?token="+apiValues.apiTocken+"serialNumber="+serialNumber;
 
@@ -227,7 +233,10 @@ public class InboundController {
                         String optValue=verificationCode.getString("vc");
                        if(!(optValue.length()>0)){
                            // If not successful, make another API call
-                           getMobileNumber(serialNumber, reqQu, succesText, errorText,context);
+                           if(retryTime>= System.currentTimeMillis())
+                               getOTP(serialNumber, reqQu, succesText, errorText,context,retryTime);
+                           else
+                               errorText.setText("Time Out to get OTP Please try again..!");
                        }else {
                            apiValues.vcOtp = optValue;
                            showNotification(context, "OTP Recived", "Msg: "+optValue ,2);
@@ -236,7 +245,7 @@ public class InboundController {
                     }
                    }else {
                        // If not successful, make another API call
-                       getMobileNumber(serialNumber, reqQu, succesText, errorText,context);
+                       //getMobileNumber(serialNumber, reqQu, succesText, errorText,context);
                    }
 
                }catch(JSONException  e){

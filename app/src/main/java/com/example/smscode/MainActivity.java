@@ -89,6 +89,9 @@ public class MainActivity extends AppCompatActivity {
 
             if(selectedCountryCode!=null && selectedCountryName !=null && selectedCountryCode.length()>0){
                 InboundController.getMobileNumber(selectedCountryCode,requestQueue,recivedNumber,errorText,MainActivity.this);
+
+
+
             }else{
                 Toast.makeText(getApplicationContext(),
                         "Please select the country",
@@ -103,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         getOTPBtn.setOnClickListener(view -> {
 
             if(apiValues.apiTocken!=null && apiValues.contactNumber!=null && apiValues.serialNumber!=null){
-                InboundController.getOTP(apiValues.serialNumber,requestQueue,recivedNumber,errorText,MainActivity.this);
+                InboundController.getOTP(apiValues.serialNumber,requestQueue,recivedNumber,errorText,MainActivity.this,(System.currentTimeMillis() + 30000));
             }
             else{
                      Toast.makeText(getApplicationContext(),

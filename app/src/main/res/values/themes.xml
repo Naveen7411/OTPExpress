@@ -3,6 +3,11 @@
     <style name="Base.Theme.SmsCode" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Customize your theme here. -->
+
+        <!-- Add more style attributes as needed -->
+
+
     </style>
 
     <style name="Theme.SmsCode" parent="Base.Theme.SmsCode" />

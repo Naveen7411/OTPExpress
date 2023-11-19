@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -13,6 +10,60 @@
     android:orientation="vertical"
     >
 
+
+    <!-- First time API Key information -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editApiKey"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_weight="1"
+            android:hint="Enter API KEY"
+            android:padding="15px"
+            android:textColor="@color/textClr"
+            android:textColorHint="@color/hintClr"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <Button
+            android:id="@+id/saveAPIKeyBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:onClick="onSaveKey"
+            />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/displayEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Saved API Key Value will be displayed here"
+        android:textColorHint="@color/hintClr"
+        android:textColor="@color/textClr"
+        android:enabled="false"/>
+
+    <!-- Show Current Account Balance information -->
+    <TextView
+        android:id="@+id/accBalText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="15px"
+        android:text="Current Balance : - "
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="@color/BalClr"
+        />
+    <!-- Show Error Message  -->
     <TextView
         android:id="@+id/errorText"
         android:layout_width="match_parent"
@@ -59,19 +110,9 @@
 
     </LinearLayout>
 
-    <!-- Display Views Layout-->
-    <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
 
 
-
-    </LinearLayout>
-
-
-<!-- Display Views Layout-->
+    <!-- Display Views Layout for Number -->
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="fill_parent"
@@ -104,7 +145,7 @@
             />
 
     </LinearLayout>
-
+    <!-- Display Views Layout for OTP -->
     <LinearLayout
 
         android:layout_width="fill_parent"
@@ -137,7 +178,8 @@
             />
 
     </LinearLayout>
-<!--    Action Buttons to call the api-->
+<!-- ===   Action Buttons to call the api ==== -->
+    <!--    Request New Number -->
     <Button
         android:id="@+id/getNumber"
         android:layout_width="match_parent"
@@ -146,7 +188,7 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="42dp"
         tools:layout_editor_absoluteY="326dp" />
-
+    <!--    Request OTP for Number -->
     <Button
         android:id="@+id/getOtp"
         android:layout_width="match_parent"
@@ -155,7 +197,7 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="241dp"
         tools:layout_editor_absoluteY="326dp" />
-
+    <!--    Ban the recived   Number -->
     <Button
         android:id="@+id/banNumber"
         android:layout_width="match_parent"

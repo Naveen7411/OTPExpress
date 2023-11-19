@@ -8,9 +8,12 @@
     <color name="colorPrimaryDemo">#554911</color>
     <color name="colorPrimaryLightDemo">#EEE3AB</color>
     <color name="colorAccentDemo">#665815</color>
-    <color name="Apkbg">#F5F5F5</color>
-    <color name="colorErr">#ff0000</color>
+    <color name="Apkbg">#292929</color>
+    <color name="colorErr">#ff3333</color>
 
 <!--Text Color-->
-    <color name="textClr">#333333</color>
+    <color name="textClr">#FFFF</color>
+    <color name="BalClr">#70a6d7</color>
+    <color name="hintClr">#9BA4B5</color>
+
 </resources>
